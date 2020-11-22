@@ -1,0 +1,88 @@
+# ----------input-----
+
+coordinates             ionized.pdb
+structure               ionized.psf
+parameters		 par_all36m_prot.prm
+parameters    		 charmm27_interface_v1_5.prm
+paratypecharmm          on
+#bincoordinates         minimized.restart.coor
+#binvelocities          minimized.restart.vel
+
+# ----------output------
+
+set output              output
+
+outputname              $output
+dcdfile                 ${output}.dcd
+xstFile                 ${output}.xst
+dcdfreq                 50
+xstFreq                 50
+binaryoutput            yes
+binaryrestart           yes
+outputEnergies          50
+restartfreq             50
+
+
+# ---------Basic dynamics-------
+exclude                 scaled1-4
+1-4scaling              1
+COMmotion               no
+dielectric              1.0
+
+# --------Simulation space partitioning----
+switching               on
+switchdist              9
+cutoff                  10
+pairlistdist            11
+
+# --------Multiple time stepping----
+firsttimestep           0
+timestep                2
+stepspercycle   1
+
+# -------Temperature control----
+set temperature         310
+temperature             $temperature;  # initial temperature
+
+# -------Langevin Dynamics------
+langevin                on;            # do langevin dynamics
+langevinDamping         1;              # damping coefficient (gamma) of 1/ps
+langevinTemp            $temperature;   # bath temperature
+
+# ===============================================
+
+PME on
+PMEGridSizeX 102
+PMEGridSizeY 102
+PMEGridSizeZ 108
+
+# doesnt work with just pme
+
+useGroupPressure yes
+
+# with grouppressure, works better, holes still there
+
+LangevinPiston   on
+LangevinPistonTarget 1.02
+LangevinPistonPeriod 150
+LangevinPistonDecay  90
+LangevinPistonTemp  $temperature
+
+# with langevin piston, works!!! But slower.
+
+# ===============================================
+
+# Periodic Boundary conditions
+cellBasisVector1 101.991 0 0 
+cellBasisVector2 0 101.98599999999999 0 
+cellBasisVector3 0 0 107.098 
+cellOrigin 0.9975000000000023 0.9959999999999987 48.451 
+
+wrapWater           on              ;# wrap water to central cell
+wrapAll             on              ;# wrap other molecules too
+wrapNearest         off
+
+# ---------Scripting
+minimize            1000          ;# lower potential energy for 1000 steps
+reinitvels          $temperature  ;# since minimization zeros velocities
+run 5000000;

@@ -12,7 +12,7 @@ sudo su
 cp namd2 /usr/local/bin
 ```
 
-After this step NAMD can be called from the terminal with "namd2" 
+After this step NAMD can be called from the terminal with the command "namd2" 
 
 ## Install VMD in Linux
 Get VMD files from NAMD Webside, open the terminal in the folder with the downloaded files, continue with the following commands
@@ -26,4 +26,4 @@ cd src
 make install
 ```
 
-Afer this step VMD can be called from the terminal with "vmd"
+Afer this step VMD can be called from the terminal with the command "vmd"

@@ -1,6 +1,6 @@
 # nanobiosystems
 
-Simulation of Nanobiosystems with NAMD and CHARMM GUI
+Simulation of Nanobiosystems with NAMD, VMD and CHARMM GUI
 
 ## Install NAMD in Linux
 Get NAMD Files from NAMD Webside, open the terminal in the folder with the downloaded files, continue with the following commands
@@ -27,3 +27,6 @@ make install
 ```
 
 Afer this step VMD can be called from the terminal with the command "vmd"
+
+## Charmm GUI
+The Charmm GUI Webserver: https://www.charmm-gui.org/

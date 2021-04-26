@@ -5,7 +5,7 @@ Simulation of Nanobiosystems with NAMD and CHARMM GUI
 # Install NAMD in Linux
 ## Get NAMD Files from NAMD Webside
 
-tar -zxvf NAMD_file.tar.gz
+tar -zxvf NAMD_file.tar.gz //
 cd NAMD_directory
 sudo su
 cp namd2 /usr/local/bin

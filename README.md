@@ -2,7 +2,7 @@
 
 Simulation of Nanobiosystems with NAMD, VMD and CHARMM GUI
 
-## Install NAMD in Linux
+## Install NAMD in Ubuntu (20.04)
 Get NAMD Files from NAMD Webside, open the terminal in the folder with the downloaded files, continue with the following commands
 
 ```
@@ -14,7 +14,7 @@ cp namd2 /usr/local/bin
 
 After this step NAMD can be called from the terminal with the command "namd2" 
 
-## Install VMD in Linux
+## Install VMD in Ubuntu (20.04)
 Get VMD files from NAMD Webside, open the terminal in the folder with the downloaded files, continue with the following commands
 
 ```
